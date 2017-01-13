@@ -53,7 +53,32 @@ function App() {
   );
 }
 
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root')
+// );
+
+class NumberList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {listItems: props.listItems};
+  }
+
+  render() {
+    const listItems = this.state.listItems.map((number) =>
+    <li key={number.toString()}>
+      {number} 
+    </li>
+    );
+
+    return <ul>{listItems}</ul>
+  }
+}
+const numbers = [1, 2, 3, 4, 5];
+
+
 ReactDOM.render(
-  <App />,
+  <NumberList listItems={numbers} />,
   document.getElementById('root')
 );
